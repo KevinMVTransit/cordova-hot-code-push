@@ -107,6 +107,10 @@ static NSString *const DEFAULT_STARTING_PAGE = @"index.html";
         
         [_pluginInternalPrefs saveToUserDefaults];
     }
+    //
+    // Added line to update _fileStructure when updating an existing app from the app store.
+    //
+    _filesStructure = [[HCPFilesStructure alloc] initWithReleaseVersion:_pluginInternalPrefs.currentReleaseVersionName];
     
     [HCPAssetsFolderHelper installWwwFolderToExternalStorageFolder:_filesStructure.wwwFolder];
 }
